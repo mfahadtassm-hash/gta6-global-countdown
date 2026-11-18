@@ -1,16 +1,280 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090914"><title>VI — Global Launch Tracker</title><style>
-:root{--pink:#ff5dbb;--cyan:#6de7ff;--gold:#ffd18a;--muted:#a9a3ba;--panel:#121221}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -10%,#44214f 0,#151326 42%,#080810 100%);color:#f8f5ff;font-family:Inter,Arial,sans-serif;min-height:100vh}.shell{max-width:1120px;margin:auto;padding:24px 18px 42px}header{text-align:center;padding:8px 0 20px}.logo{width:min(245px,58vw);height:150px;object-fit:contain;filter:drop-shadow(0 0 18px #ff59bc55)}.eyebrow{font-size:10px;letter-spacing:.34em;color:#f5b8df;text-transform:uppercase;margin-top:4px}h1{font-size:clamp(25px,5vw,42px);letter-spacing:.12em;margin:10px 0 5px;font-weight:850}.tag{font-size:12px;color:var(--muted)}.panel{background:linear-gradient(145deg,#1b1830ed,#0e101ced);border:1px solid #9a6de344;border-radius:20px;box-shadow:0 20px 60px #0008;padding:22px;margin:12px 0}.topline{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.pill{border:1px solid #ff5dbb77;color:#ffacd9;border-radius:30px;padding:7px 11px;font-size:10px;letter-spacing:.15em}.pill b{display:inline-block;width:7px;height:7px;background:#ff5dbb;border-radius:50%;margin-right:7px;box-shadow:0 0 12px #ff5dbb}.next{color:var(--muted);font-size:11px;letter-spacing:.12em;text-transform:uppercase}.region{font-size:clamp(22px,4vw,34px);font-weight:800;margin:12px 0 2px}.zone{color:var(--muted);font-size:12px}.clock{display:flex;gap:clamp(8px,3vw,22px);justify-content:center;margin:22px 0 10px;flex-wrap:wrap}.unit{min-width:62px;text-align:center}.n{font-size:clamp(34px,8vw,66px);font-weight:850;letter-spacing:-.06em;font-variant-numeric:tabular-nums;text-shadow:0 0 25px #b66dff55}.u{font-size:9px;color:#c8badb;letter-spacing:.22em}.subnote{text-align:center;color:#8f88a0;font-size:10px;line-height:1.6}.actions{display:flex;justify-content:center;gap:10px;align-items:center;flex-wrap:wrap;margin-top:17px}button{border:1px solid #d17bc477;border-radius:30px;background:#30213e;color:#fff;padding:10px 16px;font-weight:700;cursor:pointer}button.primary{background:linear-gradient(100deg,#a53c9b,#593b9d);border:0}input{accent-color:#f36bc0;width:90px}.section{font-size:12px;letter-spacing:.2em;color:#efd3f2;text-transform:uppercase;margin:28px 0 12px}.mapbox{padding:10px;background:#0b0d19;border:1px solid #ffffff16;border-radius:16px;overflow:hidden}.mapbox svg{width:100%;height:auto;display:block}.land{fill:#27243a;stroke:#66527b;stroke-width:1.1}.graticule{stroke:#ffffff0b;stroke-width:1;fill:none}.pin{fill:#ff6bc5;stroke:#ffe3f4;stroke-width:1.5;filter:drop-shadow(0 0 5px #ff53c9)}.pin.active{fill:#ffe0a4;stroke:white;filter:drop-shadow(0 0 9px #ffc66b)}.pulse{fill:none;stroke:#ff78d0;stroke-width:2;opacity:.8;animation:pulse 1.8s infinite}@keyframes pulse{0%{r:5;opacity:.9}100%{r:18;opacity:0}}.maplegend{font-size:10px;color:#a9a3ba;display:flex;gap:16px;justify-content:center;padding:8px}.key{display:inline-block;width:7px;height:7px;border-radius:50%;background:#ffe0a4;margin-right:6px}.list{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:9px}.item{background:#121221;border:1px solid #ffffff17;border-radius:12px;padding:12px;display:flex;justify-content:space-between;gap:8px;align-items:center}.item.active{border-color:#ffc66b99;background:#282033}.item strong{font-size:12px}.item small{display:block;color:#88829a;font-size:9px;margin-top:4px}.item time{font-size:14px;font-weight:800;font-variant-numeric:tabular-nums;color:#f3d3ee}.foot{text-align:center;color:#777184;font-size:9px;line-height:1.7;margin:25px auto 0;max-width:760px}@media(max-width:520px){.shell{padding:12px}.panel{padding:16px 12px}.logo{height:125px}}
-</style></head><body><main class="shell"><header><img class="logo" src="gta-logo.png" alt="Grand Theft Auto VI"><div class="eyebrow">Vice City • worldwide launch tracker</div><h1>GLOBAL LAUNCH</h1><div class="tag">The world is watching. The countdown starts where midnight arrives first.</div></header>
-<section class="panel"><div class="topline"><span class="pill"><b></b>LIVE COUNTDOWN</span><span class="next">NEXT ESTIMATED LOCAL MIDNIGHT</span></div><div class="region" id="nextName">Loading…</div><div class="zone" id="nextZone">Finding the first region</div><div class="clock"><div class="unit"><div class="n" id="dd">--</div><div class="u">DAYS</div></div><div class="unit"><div class="n" id="hh">--</div><div class="u">HOURS</div></div><div class="unit"><div class="n" id="mm">--</div><div class="u">MINUTES</div></div><div class="unit"><div class="n" id="ss">--</div><div class="u">SECONDS</div></div></div><div class="subnote" id="eta">Countdowns are estimates based on local midnight on November 19, 2026.</div><div class="actions"><button class="primary" id="musicBtn">▶ PLAY AMBIENT MUSIC</button><label style="font-size:10px;color:#c8badb">VOLUME <input id="vol" type="range" min="0" max="1" step=".01" value=".28"></label></div><div class="subnote" id="musicState">Original ambient synth music • Tap Play to start audio</div></section>
-<div class="section">Global launch map</div><div class="mapbox"><svg viewBox="0 0 900 430" role="img" aria-label="Stylized world map with upcoming launch region highlighted"><path class="graticule" d="M0 215H900 M450 0V430 M0 108H900 M0 322H900"/><path class="land" d="M65 105l35-32 55-13 34 17 37-3 30 22-9 25-29 7-10 29-27 7-15 29-24 5-15-30-28-5-14-28-26-7z M210 210l28 5 24 24-8 33-17 31-9 42-19 35-16-29-2-42-15-37 10-34z M385 90l33-22 53 4 30 18 42-4 30 23-14 20-39 3-11 19-38 1-20 24-31-8-12-27-29-4-13-22z M455 185l28 7 20 28-8 37-17 38-13 43-20-18-10-43 6-38z M550 93l43-23 74 7 48 25 31 2 43 31-17 24-52-7-21 18-45-12-27-28-37 2-26-20z M720 265l31-13 38 11 21 28-25 22-43-5-22-20z M820 340l22-9 19 14-10 17-26-4z"/><g id="pins"></g></svg><div class="maplegend"><span><i class="key"></i>Next estimated region</span><span>● Other launch regions</span></div></div>
-<div class="section">Regions • earliest first</div><section class="list" id="regions"></section><div class="foot">Unofficial fan-made countdown; not affiliated with Rockstar Games. This tracker assumes a local-midnight launch for display purposes. Actual regional release times have not been confirmed here. Release date shown: November 19, 2026.</div></main>
-<script>
-const data=[['Auckland, New Zealand','Pacific/Auckland',820,335],['Wellington, New Zealand','Pacific/Auckland',824,347],['Sydney, Australia','Australia/Sydney',790,355],['Tokyo, Japan','Asia/Tokyo',790,215],['Seoul, South Korea','Asia/Seoul',777,211],['Singapore','Asia/Singapore',700,300],['Hong Kong','Asia/Hong_Kong',720,265],['Mumbai, India','Asia/Kolkata',650,250],['Islamabad, Pakistan','Asia/Karachi',670,225],['Dubai, UAE','Asia/Dubai',600,235],['Riyadh, Saudi Arabia','Asia/Riyadh',580,250],['Istanbul, Turkey','Europe/Istanbul',515,185],['London, UK','Europe/London',465,150],['Paris, France','Europe/Paris',480,165],['Berlin, Germany','Europe/Berlin',500,155],['Rome, Italy','Europe/Rome',500,180],['Johannesburg, South Africa','Africa/Johannesburg',535,330],['São Paulo, Brazil','America/Sao_Paulo',300,330],['Buenos Aires, Argentina','America/Argentina/Buenos_Aires',310,370],['New York, USA','America/New_York',240,180],['Chicago, USA','America/Chicago',210,180],['Denver, USA','America/Denver',185,190],['Los Angeles, USA','America/Los_Angeles',150,205],['Toronto, Canada','America/Toronto',250,160],['Vancouver, Canada','America/Vancouver',135,165],['Mexico City, Mexico','America/Mexico_City',200,245],['Honolulu, Hawaii','Pacific/Honolulu',80,250]];
-function target(tz){const now=new Date();const p={};new Intl.DateTimeFormat('en-CA',{timeZone:tz,year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(now).forEach(x=>p[x.type]=x.value);const next=Date.UTC(+p.year,+p.month-1,+p.day+1);const parts=new Intl.DateTimeFormat('en-US',{timeZone:tz,timeZoneName:'longOffset'}).formatToParts(new Date(next));const z=parts.find(x=>x.type==='timeZoneName')?.value||'GMT';const m=z.match(/GMT([+-])(\d{2}):(\d{2})/);const off=m?(m[1]==='+'?1:-1)*(+m[2]*60+(+m[3])):0;return next-off*60000}
-function fmt(ms){let s=Math.max(0,Math.floor(ms/1000)),d=Math.floor(s/86400);s%=86400;let h=Math.floor(s/3600);s%=3600;let m=Math.floor(s/60);s%=60;return [d,h,m,s].map(x=>String(x).padStart(2,'0'))}
-const cards=document.getElementById('regions'),pins=document.getElementById('pins');let nodes=[];data.forEach((r,i)=>{let a=document.createElement('article');a.className='item';a.innerHTML=`<div><strong>${r[0]}</strong><small>${r[1].replaceAll('_',' ')}</small></div><time>--:--:--</time>`;cards.appendChild(a);let g=document.createElementNS('http://www.w3.org/2000/svg','g');g.innerHTML=`<circle class="pulse" cx="${r[2]}" cy="${r[3]}" r="5"/><circle class="pin" cx="${r[2]}" cy="${r[3]}" r="4"/>`;pins.appendChild(g);nodes.push({card:a,time:a.querySelector('time'),pin:g})});
-function tick(){let now=Date.now(),sorted=data.map((r,i)=>({r,i,t:target(r[1])})).sort((a,b)=>a.t-b.t);let upcoming=sorted.filter(x=>x.t>now);let first=upcoming[0]||sorted[0];let diff=Math.max(0,first.t-now),v=fmt(diff);['dd','hh','mm','ss'].forEach((id,i)=>document.getElementById(id).textContent=v[i]);document.getElementById('nextName').textContent=first.r[0];document.getElementById('nextZone').textContent=first.r[1].replaceAll('_',' ');document.getElementById('eta').textContent=diff>0?'Estimated local midnight • '+new Date(first.t).toUTCString():'Estimated local midnight reached';sorted.forEach((x,rank)=>{let n=nodes[x.i];n.time.textContent=x.t<=now?'MIDNIGHT':fmt(x.t-now).slice(1).join(':');n.card.classList.toggle('active',x.i===first.i);n.pin.querySelector('.pin').classList.toggle('active',x.i===first.i);n.pin.style.opacity=x.t<=now?'.35':'1';cards.appendChild(n.card);});}tick();setInterval(tick,1000);
-// Self-contained synthesized ambient track: no external audio file or network required.
-let ctx=null,master=null,playing=false,interval=null;const btn=document.getElementById('musicBtn'),vol=document.getElementById('vol'),state=document.getElementById('musicState');function chord(){if(!ctx)return;let now=ctx.currentTime;let progression=[[110,130.81,164.81],[98,123.47,146.83],[82.41,110,130.81],[98,123.47,155.56]];let index=Math.floor(now/8)%4;progression[index].forEach((f,j)=>{let o=ctx.createOscillator(),g=ctx.createGain(),filter=ctx.createBiquadFilter();o.type='sawtooth';o.frequency.value=f;filter.type='lowpass';filter.frequency.value=520;g.gain.setValueAtTime(0,now);g.gain.linearRampToValueAtTime(.045,now+1.2);g.gain.setTargetAtTime(.018,now+4,.9);o.connect(filter);filter.connect(g);g.connect(master);o.start(now);o.stop(now+7.8);});let bass=ctx.createOscillator(),bg=ctx.createGain();bass.type='sine';bass.frequency.value=55;bg.gain.setValueAtTime(.0,now);bg.gain.linearRampToValueAtTime(.07,now+.08);bg.gain.exponentialRampToValueAtTime(.001,now+.8);bass.connect(bg);bg.connect(master);bass.start(now);bass.stop(now+.85)}
-btn.addEventListener('click',async()=>{try{if(!playing){ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();await ctx.resume();master=master||ctx.createGain();master.gain.value=+vol.value;master.connect(ctx.destination);chord();interval=setInterval(chord,8000);playing=true;btn.textContent='Ⅱ PAUSE MUSIC';state.textContent='Ambient synthwave playing';}else{clearInterval(interval);await ctx.suspend();playing=false;btn.textContent='▶ PLAY AMBIENT MUSIC';state.textContent='Music paused';}}catch(e){state.textContent='Audio unavailable in this browser. Try Chrome and tap Play again.';}});vol.addEventListener('input',()=>{if(master)master.gain.value=+vol.value});
-</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>GTA VI — Global Launch Broadcast & Countdown</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Layered Leonida Cinematic Background -->
+  <div class="bg-stage" aria-hidden="true">
+    <div class="bg-gradient-sky"></div>
+    <img src="assets/leonida-bg.jpg" alt="" class="bg-custom-image" onerror="this.style.display='none'" />
+    <!-- Procedural Leonida Palm & Coastal Horizon SVG -->
+    <svg class="bg-leonida-horizon" viewBox="0 0 1440 500" preserveAspectRatio="xMidYMax slice">
+      <defs>
+        <linearGradient id="sunGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#ff9e3b" stop-opacity="0.45" />
+          <stop offset="50%" stop-color="#ff2e93" stop-opacity="0.25" />
+          <stop offset="100%" stop-color="#090616" stop-opacity="0" />
+        </linearGradient>
+        <linearGradient id="waterRef" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#1e1136" stop-opacity="0.7" />
+          <stop offset="100%" stop-color="#070410" stop-opacity="0.98" />
+        </linearGradient>
+      </defs>
+      <circle cx="720" cy="310" r="240" fill="url(#sunGlow)" />
+      <!-- Distant Vice City Skyline Silhouette -->
+      <g fill="#0d071e" opacity="0.75">
+        <rect x="480" y="290" width="28" height="90" />
+        <rect x="515" y="260" width="36" height="120" />
+        <rect x="560" y="305" width="24" height="75" />
+        <rect x="610" y="245" width="42" height="135" />
+        <rect x="660" y="280" width="30" height="100" />
+        <rect x="740" y="270" width="34" height="110" />
+        <rect x="782" y="235" width="44" height="145" />
+        <rect x="835" y="285" width="28" height="95" />
+        <rect x="875" y="300" width="38" height="80" />
+      </g>
+      <!-- Ocean Horizon -->
+      <rect x="0" y="375" width="1440" height="125" fill="url(#waterRef)" />
+      <line x1="0" y1="375" x2="1440" y2="375" stroke="#ff2e93" stroke-opacity="0.25" stroke-width="1.5" />
+      <!-- Left & Right Palm Silhouettes -->
+      <g fill="#070410">
+        <path d="M90,500 Q115,340 145,210 L153,212 Q125,340 105,500 Z" />
+        <path d="M148,212 C110,195 75,210 55,235 C85,220 115,215 148,212 Z" />
+        <path d="M148,212 C125,170 85,165 60,180 C95,180 120,192 148,212 Z" />
+        <path d="M148,212 C175,168 215,172 238,192 C205,185 178,195 148,212 Z" />
+        <path d="M148,212 C188,200 220,218 235,245 C205,225 178,218 148,212 Z" />
+
+        <path d="M1340,500 Q1315,330 1285,195 L1277,197 Q1305,330 1325,500 Z" />
+        <path d="M1280,197 C1320,180 1355,195 1375,220 C1345,205 1315,200 1280,197 Z" />
+        <path d="M1280,197 C1305,155 1345,150 1370,165 C1335,165 1310,177 1280,197 Z" />
+        <path d="M1280,197 C1255,153 1215,157 1192,177 C1225,170 1252,180 1280,197 Z" />
+        <path d="M1280,197 C1240,185 1208,203 1193,230 C1223,210 1250,203 1280,197 Z" />
+      </g>
+    </svg>
+    <div class="bg-vignette"></div>
+  </div>
+
+  <!-- Main Broadcast Interface -->
+  <div class="app-shell" id="appShell">
+
+    <!-- Top Broadcast Header -->
+    <header class="broadcast-header">
+      <div class="header-left">
+        <div class="live-badge">
+          <span class="live-dot"></span>
+          <span>LIVE GLOBAL FEED</span>
+        </div>
+        <div class="schedule-badge" id="scheduleStatusText">ESTIMATED ROLLOUT SCHEDULE</div>
+      </div>
+
+      <div class="header-center">
+        <span class="header-eyebrow">CHRONOLOGICAL WORLDWIDE UNLOCK</span>
+      </div>
+
+      <div class="header-right">
+        <!-- Custom VI Leonida Emblem -->
+        <div class="emblem-wrap" title="Vice City / Leonida Launch Broadcast">
+          <img src="assets/logo-emblem.png" alt="VI Emblem" class="custom-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="svg-emblem" style="display:none;">
+            <span class="emblem-sub">LEONIDA</span>
+            <span class="emblem-vi">VI</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Split / Hero Stage -->
+    <main class="broadcast-main">
+
+      <!-- Active Region Hero Countdown -->
+      <section class="hero-countdown-panel" aria-live="polite">
+        <div class="next-label-row">
+          <span class="tag-pill" id="phaseBadge">NEXT REGION TO UNLOCK</span>
+          <span class="progress-counter" id="regionProgressText">REGION 1 OF 12</span>
+        </div>
+
+        <div class="active-region-identity">
+          <span class="active-flag" id="activeFlag" role="img" aria-label="Country Flag">🇳🇿</span>
+          <div class="active-titles">
+            <h1 class="active-country" id="activeCountry">NEW ZEALAND</h1>
+            <p class="active-region-sub" id="activeRegionSub">Auckland / Wellington • First Global Wave (Est.)</p>
+          </div>
+        </div>
+
+        <!-- Primary Centerpiece Timer -->
+        <div class="timer-grid" id="timerGrid">
+          <div class="timer-unit">
+            <span class="timer-value" id="cdDays">00</span>
+            <span class="timer-label">DAYS</span>
+          </div>
+          <span class="timer-sep">:</span>
+          <div class="timer-unit">
+            <span class="timer-value" id="cdHours">00</span>
+            <span class="timer-label">HOURS</span>
+          </div>
+          <span class="timer-sep">:</span>
+          <div class="timer-unit">
+            <span class="timer-value" id="cdMinutes">00</span>
+            <span class="timer-label">MINS</span>
+          </div>
+          <span class="timer-sep">:</span>
+          <div class="timer-unit accent-sec">
+            <span class="timer-value" id="cdSeconds">00</span>
+            <span class="timer-label">SECS</span>
+          </div>
+        </div>
+
+        <!-- Regional Time Metadata Strip -->
+        <div class="region-meta-bar">
+          <div class="meta-item">
+            <span class="meta-key">LOCAL TIME THERE</span>
+            <span class="meta-val" id="regionLocalClock">--:--:--</span>
+          </div>
+          <div class="meta-divider"></div>
+          <div class="meta-item">
+            <span class="meta-key">TARGET UNLOCK (LOCAL)</span>
+            <span class="meta-val" id="regionTargetLocal">Nov 19, 12:00 AM</span>
+          </div>
+          <div class="meta-divider"></div>
+          <div class="meta-item">
+            <span class="meta-key">LAUNCHED REGIONS</span>
+            <span class="meta-val highlight-cyan" id="launchedCountStat">0 / 12</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive 2D Neon World Map -->
+      <section class="world-map-panel" aria-label="Global Launch Sequence Map">
+        <div class="map-legend">
+          <span class="legend-item"><i class="dot-active"></i> NEXT UNLOCK</span>
+          <span class="legend-item"><i class="dot-upcoming"></i> UPCOMING</span>
+          <span class="legend-item"><i class="dot-launched"></i> LIVE / UNLOCKED</span>
+        </div>
+
+        <div class="map-canvas-wrap">
+          <svg id="worldMapSvg" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <linearGradient id="continentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#c026d3" stop-opacity="0.55" />
+                <stop offset="55%" stop-color="#7c3aed" stop-opacity="0.45" />
+                <stop offset="100%" stop-color="#f97316" stop-opacity="0.5" />
+              </linearGradient>
+              <filter id="neonGlow" x="-40%" y="-40%" width="180%" height="180%">
+                <feGaussianBlur stdDeviation="4" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+
+            <!-- Subtle Latitude / Longitude Broadcast Grid -->
+            <g class="map-grid" stroke="rgba(255,255,255,0.05)" stroke-width="1">
+              <line x1="0" y1="125" x2="1000" y2="125" />
+              <line x1="0" y1="250" x2="1000" y2="250" stroke="rgba(255,46,147,0.14)" stroke-dasharray="4 4" />
+              <line x1="0" y1="375" x2="1000" y2="375" />
+              <line x1="250" y1="0" x2="250" y2="500" />
+              <line x1="500" y1="0" x2="500" y2="500" />
+              <line x1="750" y1="0" x2="750" y2="500" />
+            </g>
+
+            <!-- Stylized Vector Continents -->
+            <g class="continents" fill="url(#continentGrad)" stroke="rgba(255, 158, 59, 0.35)" stroke-width="1.2">
+              <!-- North America -->
+              <path d="M110,85 L220,75 L285,115 L265,175 L215,215 L195,245 L170,235 L145,190 L105,145 Z" />
+              <!-- Greenland -->
+              <path d="M295,50 L365,45 L350,95 L305,90 Z" />
+              <!-- South America -->
+              <path d="M235,260 L295,275 L325,335 L290,425 L260,445 L245,375 L225,310 Z" />
+              <!-- Europe -->
+              <path d="M445,85 L545,75 L575,125 L540,165 L470,168 L440,135 Z" />
+              <!-- Africa -->
+              <path d="M445,182 L535,180 L585,235 L565,335 L520,395 L485,335 L465,260 L435,225 Z" />
+              <!-- Asia -->
+              <path d="M575,85 L785,80 L865,125 L845,205 L775,245 L700,255 L635,215 L580,175 Z" />
+              <!-- Japan & SE Asia Islands -->
+              <path d="M845,145 L862,140 L858,175 L840,175 Z" />
+              <path d="M745,265 L815,275 L805,300 L740,290 Z" />
+              <!-- Australia -->
+              <path d="M775,325 L865,320 L880,385 L815,405 L770,375 Z" />
+              <!-- New Zealand -->
+              <path d="M905,405 L928,395 L935,425 L910,432 Z" />
+            </g>
+
+            <!-- Chronological Sequence Path -->
+            <path id="sequenceTrack" fill="none" stroke="rgba(0, 240, 255, 0.28)" stroke-width="1.5" stroke-dasharray="5 5" />
+            <path id="sequenceActiveLine" fill="none" stroke="#ff9e3b" stroke-width="2.5" filter="url(#neonGlow)" />
+
+            <!-- Dynamic Region Pins Group -->
+            <g id="mapMarkersLayer"></g>
+          </svg>
+        </div>
+
+        <!-- Floating Active Pin Callout -->
+        <div class="map-active-callout" id="mapCallout">
+          <span class="callout-flag" id="calloutFlag">🇳🇿</span>
+          <div class="callout-info">
+            <strong id="calloutName">NEW ZEALAND</strong>
+            <span id="calloutMiniTimer">00d 00h 00m 00s</span>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Status Ticker & Controls -->
+    <footer class="broadcast-footer">
+      <!-- Region Rollout Strip -->
+      <div class="rollout-strip" id="rolloutStrip" aria-label="Regional Launch Queue"></div>
+
+      <!-- Control Bar (Audio, Simulator, Fullscreen) -->
+      <div class="control-dock">
+        <div class="audio-controls">
+          <button type="button" class="ctrl-btn primary-audio" id="audioToggleBtn" aria-pressed="false">
+            <span class="ctrl-icon" id="audioIcon">▶</span>
+            <span id="audioLabel">LEONIDA SYNTH</span>
+          </button>
+          <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="0.45" aria-label="Music Volume" />
+        </div>
+
+        <div class="utility-controls">
+          <button type="button" class="ctrl-btn ghost-btn" id="simulateLaunchBtn" title="Preview the launch celebration and transition">
+            ⚡ SIMULATE LAUNCH
+          </button>
+          <button type="button" class="ctrl-btn ghost-btn" id="fullscreenBtn" title="Toggle Fullscreen Mode">
+            ⛶ FULLSCREEN
+          </button>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Cinematic Launch Celebration Modal -->
+  <div class="celebration-overlay" id="celebrationOverlay" aria-hidden="true" role="dialog" aria-labelledby="celebTitle">
+    <div class="celebration-particles" id="celebrationParticles"></div>
+    <div class="celebration-card">
+      <div class="celeb-glow-ring"></div>
+      <div class="celeb-badge">GLOBAL BROADCAST ALERT</div>
+      <div class="celeb-flag" id="celebFlag">🇳🇿</div>
+      <h2 class="celeb-kicker">IT'S OFFICIAL!</h2>
+      <h3 class="celeb-title" id="celebTitle">GTA VI HAS LAUNCHED!</h3>
+      <p class="celeb-region" id="celebRegion">NOW AVAILABLE IN NEW ZEALAND</p>
+      <div class="celeb-progress-bar">
+        <div class="celeb-progress-fill" id="celebProgressFill"></div>
+      </div>
+      <span class="celeb-next-hint" id="celebNextHint">Transitioning to next region...</span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
