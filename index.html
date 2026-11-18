@@ -1,67 +1,53 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GTA VI Global Countdown</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GTA VI Global Countdown — Fan Project</title>
 <style>
-*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#08060d;color:#fff;font-family:Arial, sans-serif}
-body{background:radial-gradient(ellipse at 50% 40%,#281034 0,#100a18 55%,#07060b 100%)}
-#wrap{width:100vw;height:100vh;position:relative;padding:2.2vh 2.8vw}
-header{display:flex;justify-content:space-between;align-items:center}
-.live{background:#e52d68;border-radius:5px;padding:7px 12px;font-size:clamp(9px,1.1vw,13px);font-weight:bold;letter-spacing:2px}
-.brand{text-align:right;font-size:clamp(17px,2.2vw,28px);font-weight:1000;letter-spacing:3px;text-shadow:0 0 15px #dc62ff}
-.brand small{display:block;font-size:8px;letter-spacing:2px;color:#b9a8c3}
-h1{text-align:center;margin:1.4vh 0 .4vh;font-size:clamp(10px,1.3vw,16px);letter-spacing:2px;color:#e9dff0}
-#hero{text-align:center;position:relative;z-index:2}
-#place{font-size:clamp(10px,1.3vw,15px);font-weight:bold;letter-spacing:2px;color:#f05bff}
-#timer{font-size:clamp(26px,4.4vw,52px);font-weight:1000;color:#ffe16a;text-shadow:0 0 20px #ffdb5b55}
-#timer small{font-size:.35em;color:#eadfee}
-#sub{font-size:clamp(7px,.85vw,10px);letter-spacing:1.5px;color:#a99caf}
-.map{position:absolute;left:3%;right:3%;top:20%;height:46%;opacity:.95}
-.map svg{width:100%;height:100%}.land{fill:#a333bd;stroke:#e36aff;stroke-width:1.5;stroke-opacity:.7}
-.dot{fill:white;stroke:#f05bff;stroke-width:3;filter:drop-shadow(0 0 7px #f05bff)}
-.cards{position:absolute;left:3%;right:3%;bottom:9%;height:27%;display:grid;grid-template-columns:repeat(7,1fr);grid-template-rows:repeat(4,1fr);gap:6px}
-.card{background:rgba(18,10,27,.92);border:1px solid #713c83;border-radius:6px;padding:6px;min-width:0;overflow:hidden}
-.card.next{border-color:#ffe16a;box-shadow:0 0 12px #ffe16a35}
-.n{font-size:clamp(6px,.78vw,10px);font-weight:bold;letter-spacing:.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#eadcf0}
-.c{font-size:clamp(11px,1.45vw,18px);font-weight:900;margin-top:5px;white-space:nowrap}
-.c small{font-size:.48em;color:#bcaec6}
-.city{font-size:clamp(6px,.65vw,8px);color:#9f91a9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-footer{position:absolute;bottom:2.4%;left:3%;right:3%;display:flex;justify-content:space-between;color:#9f91a9;font-size:clamp(6px,.75vw,9px);letter-spacing:1px}
-@media(max-aspect-ratio:1/1){.cards{grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(7,1fr);height:47%;bottom:7%;}.map{top:22%;height:26%}#hero{margin-top:1vh}}
-</style>
-</head>
-<body><main id="wrap">
-<header><div class="live">● LIVE</div><div class="brand">GTA VI<small>GLOBAL COUNTDOWN</small></div></header>
-<h1>GRAND THEFT AUTO VI · NOVEMBER 19, 2026</h1>
-<section id="hero"><div id="place">GLOBAL RELEASE COUNTDOWN</div><div id="timer">--<small>h</small> --<small>m</small> --<small>s</small></div><div id="sub">REGIONAL LOCAL-TIME ESTIMATES · FAN-MADE COUNTDOWN</div></section>
-<div class="map"><svg viewBox="0 0 1200 470" aria-label="Stylized world map">
-<g class="land">
-<path d="M76 93L113 63 169 53 207 66 235 57 269 76 300 82 319 111 302 133 276 138 260 164 231 169 218 195 192 201 180 226 153 224 143 199 122 190 108 160 84 145 67 117Z"/>
-<path d="M252 222L280 213 309 228 322 254 310 280 296 300 290 333 274 364 264 408 244 386 237 348 223 318 224 285 207 260 220 238Z"/>
-<path d="M451 98L481 76 521 70 552 84 578 76 610 86 627 108 610 126 581 129 561 148 536 142 520 163 492 158 473 140 447 134Z"/>
-<path d="M516 164L551 151 579 165 592 193 581 225 567 253 558 292 537 331 516 309 504 278 489 247 493 211Z"/>
-<path d="M589 93L626 67 676 58 719 70 757 61 800 75 831 66 872 83 903 74 943 92 988 91 1032 110 1060 134 1045 157 1010 161 987 184 951 179 926 197 893 185 871 207 841 195 813 214 780 200 758 178 727 176 705 151 674 156 650 132 622 132Z"/>
-<path d="M818 213L847 205 873 221 887 248 875 273 853 292 839 322 819 304 806 276 790 250Z"/>
-<path d="M1012 286L1051 271 1092 283 1120 307 1107 329 1074 337 1048 325 1022 316Z"/>
-<path d="M1092 366L1113 356 1134 368 1128 390 1104 397 1087 383Z"/>
-</g>
-<g><circle class="dot" cx="270" cy="145" r="5"/><circle class="dot" cx="285" cy="255" r="5"/><circle class="dot" cx="530" cy="128" r="5"/><circle class="dot" cx="555" cy="218" r="5"/><circle class="dot" cx="670" cy="130" r="5"/><circle class="dot" cx="775" cy="170" r="5"/><circle class="dot" cx="895" cy="165" r="5"/><circle class="dot" cx="1020" cy="290" r="5"/><circle class="dot" cx="1098" cy="370" r="5"/></g>
-</svg></div>
-<section class="cards" id="cards"></section>
-<footer><span>GLOBAL RELEASE TRACKER</span><span id="now"></span><span>UNOFFICIAL FAN PROJECT</span></footer>
+:root{--pink:#ff4fb8;--purple:#9b68ff;--cyan:#67d8ff;--ink:#090912;--panel:rgba(18,17,32,.82)}
+*{box-sizing:border-box}body{margin:0;color:#f7f4ff;background:radial-gradient(ellipse at 50% 0%,#32204e 0,#111020 42%,#080810 100%);font-family:Arial,Helvetica,sans-serif;min-height:100vh}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.13;background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+.wrap{max-width:1180px;margin:auto;padding:22px 18px 40px;position:relative}
+header{text-align:center;padding:8px 0 18px}.logo{width:min(290px,65vw);max-height:190px;object-fit:contain;filter:drop-shadow(0 0 22px #e74ab788)}
+.kicker{font-size:11px;letter-spacing:.32em;color:#e8c9ff;text-transform:uppercase;margin:10px 0 4px}
+h1{font-size:clamp(23px,4vw,38px);margin:8px 0 6px;letter-spacing:.08em;text-transform:uppercase}
+.sub{color:#bdb4d0;font-size:13px}
+.hero{border:1px solid #8f5cff88;border-radius:22px;background:linear-gradient(135deg,rgba(50,31,77,.85),rgba(12,12,25,.9));box-shadow:0 18px 60px #0008,0 0 35px #b84dff22;padding:25px 18px;text-align:center}
+.status{display:inline-flex;align-items:center;gap:8px;border:1px solid #ff4f9b88;border-radius:99px;padding:7px 12px;color:#ff9ac9;font-size:11px;letter-spacing:.16em}
+.dot{width:7px;height:7px;background:#ff4d8b;border-radius:50%;box-shadow:0 0 12px #ff4d8b}
+.timer{display:flex;justify-content:center;gap:clamp(8px,3vw,30px);margin:22px auto 8px;flex-wrap:wrap}
+.unit{min-width:75px}.num{font-size:clamp(38px,8vw,76px);font-weight:800;letter-spacing:-.05em;text-shadow:0 0 22px #b35bff77;font-variant-numeric:tabular-nums}
+.label{font-size:10px;letter-spacing:.24em;color:#c9b8e5;margin-top:3px}
+.release{color:#d9cbe9;font-size:12px;margin-top:18px}
+.controls{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;margin-top:20px}
+button{border:1px solid #b57aff88;background:#241b37;color:white;padding:10px 16px;border-radius:999px;font-weight:700;cursor:pointer}
+button:hover{background:#382451}.vol{width:95px;accent-color:#d16bff}
+.note{font-size:11px;color:#a99dbb;max-width:520px;margin:12px auto 0;line-height:1.5}
+.section-title{margin:30px 0 13px;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#e7d5ff}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:10px}
+.country{border:1px solid #ffffff18;background:var(--panel);border-radius:13px;padding:13px 14px;backdrop-filter:blur(8px)}
+.country strong{font-size:12px;letter-spacing:.04em}.country .time{font-size:20px;font-weight:700;margin-top:8px;font-variant-numeric:tabular-nums}.country small{display:block;color:#a99fba;margin-top:5px;font-size:10px}
+.footer{text-align:center;color:#82788f;font-size:10px;line-height:1.6;margin-top:28px}
+@media(max-width:480px){.wrap{padding:12px}.hero{padding:20px 10px}.unit{min-width:66px}.num{font-size:42px}}
+</style></head><body><main class="wrap">
+<header><img class="logo" src="gta-logo.png" alt="Grand Theft Auto VI logo"><div class="kicker">Vice City • Global Launch Watch</div><h1>Global Countdown</h1><div class="sub">One world. One launch. The wait is almost over.</div></header>
+<section class="hero"><div class="status"><span class="dot"></span> GLOBAL COUNTDOWN • FAN PROJECT</div>
+<div class="timer"><div class="unit"><div class="num" id="days">--</div><div class="label">DAYS</div></div><div class="unit"><div class="num" id="hours">--</div><div class="label">HOURS</div></div><div class="unit"><div class="num" id="minutes">--</div><div class="label">MINUTES</div></div><div class="unit"><div class="num" id="seconds">--</div><div class="label">SECONDS</div></div></div>
+<div class="release">Target date: November 19, 2026 • Local midnight estimates</div>
+<div class="controls"><button id="musicBtn">▶ Play ambient music</button><label style="font-size:11px;color:#c9b8e5">VOLUME <input class="vol" id="volume" type="range" min="0" max="1" step=".01" value=".35"></label></div>
+<div class="note">Original synthwave ambience created for this fan countdown — not official GTA music. Tap Play to start; browsers block automatic audio until you interact.</div>
+<audio id="music" src="original-synthwave-loop.wav" loop preload="none"></audio></section>
+<div class="section-title">Regional midnight watch • estimated local countdowns</div><section class="grid" id="countries"></section>
+<div class="footer">Unofficial fan-made countdown. Not affiliated with Rockstar Games. Regional timers use local midnight estimates and are not confirmed release unlock times.</div>
 </main>
 <script>
-const release={y:2026,m:11,d:19};
-const places=[
-["NEW ZEALAND","Auckland","Pacific/Auckland"],["AUSTRALIA","Sydney","Australia/Sydney"],["JAPAN","Tokyo","Asia/Tokyo"],["SOUTH KOREA","Seoul","Asia/Seoul"],["CHINA","Shanghai","Asia/Shanghai"],["SINGAPORE","Singapore","Asia/Singapore"],["THAILAND","Bangkok","Asia/Bangkok"],["BANGLADESH","Dhaka","Asia/Dhaka"],["INDIA","New Delhi","Asia/Kolkata"],["PAKISTAN","Karachi","Asia/Karachi"],["UAE","Dubai","Asia/Dubai"],["SAUDI ARABIA","Riyadh","Asia/Riyadh"],["RUSSIA","Moscow","Europe/Moscow"],["SOUTH AFRICA","Johannesburg","Africa/Johannesburg"],["EGYPT","Cairo","Africa/Cairo"],["GERMANY","Berlin","Europe/Berlin"],["FRANCE","Paris","Europe/Paris"],["UK","London","Europe/London"],["BRAZIL","São Paulo","America/Sao_Paulo"],["ARGENTINA","Buenos Aires","America/Argentina/Buenos_Aires"],["USA EAST","New York","America/New_York"],["USA CENTRAL","Chicago","America/Chicago"],["USA MOUNTAIN","Denver","America/Denver"],["USA WEST","Los Angeles","America/Los_Angeles"],["CANADA WEST","Vancouver","America/Vancouver"],["MEXICO","Mexico City","America/Mexico_City"],["HAWAII","Honolulu","Pacific/Honolulu"]
-];
-function parts(date,tz){return Object.fromEntries(new Intl.DateTimeFormat("en-CA",{timeZone:tz,year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",second:"2-digit",hourCycle:"h23"}).formatToParts(date).map(x=>[x.type,x.value]));}
-function target(tz){let x=Date.UTC(release.y,release.m-1,release.d);for(let i=0;i<4;i++){let p=parts(new Date(x),tz);x+=Date.UTC(release.y,release.m-1,release.d)-Date.UTC(+p.year,+p.month-1,+p.day,+p.hour,+p.minute,+p.second);}return x;}
-function fmt(ms){let s=Math.max(0,Math.floor(ms/1000)),d=Math.floor(s/86400),h=Math.floor(s%86400/3600),m=Math.floor(s%3600/60),sec=s%60;return `${d?d+"d ":""}${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(sec).padStart(2,"0")}`;}
-const ends=places.map(p=>target(p[2]));
-const cards=document.getElementById("cards");
-const els=places.map((p,i)=>{let e=document.createElement("article");e.className="card";e.innerHTML=`<div class="n">${p[0]}</div><div class="city">${p[1]}</div><div class="c">--:--:--</div>`;cards.appendChild(e);return e;});
-function tick(){let now=Date.now(),next=Infinity,idx=-1;ends.forEach((t,i)=>{if(t>now&&t<next){next=t;idx=i;}els[i].querySelector(".c").textContent=now>=t?"UNLOCKED":fmt(t-now);els[i].classList.toggle("next",i===idx);});if(idx>=0){document.getElementById("place").textContent="NEXT UNLOCK · "+places[idx][0];document.getElementById("timer").innerHTML=fmt(next-now).replace(/d /,"d <small>").replace(/:/g,"</small> : <small>")+"</small>";}else{document.getElementById("place").textContent="GLOBAL RELEASE";document.getElementById("timer").textContent="UNLOCKED";}let p=parts(new Date(),"Asia/Karachi");document.getElementById("now").textContent=`PAKISTAN TIME ${p.hour}:${p.minute}:${p.second}`;}
+const targetDate='2026-11-19T00:00:00';
+const regions=[
+['New Zealand','Pacific/Auckland'],['Australia – Sydney','Australia/Sydney'],['Japan','Asia/Tokyo'],['South Korea','Asia/Seoul'],['Singapore','Asia/Singapore'],['Hong Kong','Asia/Hong_Kong'],['India','Asia/Kolkata'],['Pakistan','Asia/Karachi'],['UAE','Asia/Dubai'],['Saudi Arabia','Asia/Riyadh'],['Turkey','Europe/Istanbul'],['United Kingdom','Europe/London'],['France','Europe/Paris'],['Germany','Europe/Berlin'],['Italy','Europe/Rome'],['Spain','Europe/Madrid'],['South Africa','Africa/Johannesburg'],['Brazil – São Paulo','America/Sao_Paulo'],['Argentina','America/Argentina/Buenos_Aires'],['US – New York','America/New_York'],['US – Chicago','America/Chicago'],['US – Denver','America/Denver'],['US – Los Angeles','America/Los_Angeles'],['Canada – Toronto','America/Toronto'],['Canada – Vancouver','America/Vancouver'],['Mexico','America/Mexico_City'],['Hawaii','Pacific/Honolulu']];
+const fmt=(ms)=>{if(ms<=0)return '00:00:00:00';let s=Math.floor(ms/1000);let d=Math.floor(s/86400);s%=86400;let h=Math.floor(s/3600);s%=3600;let m=Math.floor(s/60);s%=60;return [d,h,m,s].map(x=>String(x).padStart(2,'0')).join(':')};
+function localMidnight(tz){let now=new Date();let parts=new Intl.DateTimeFormat('en-CA',{timeZone:tz,year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(now);let p={};parts.forEach(x=>p[x.type]=x.value);let utcGuess=Date.UTC(+p.year,+p.month-1,+p.day+1,0,0,0);let offsetParts=new Intl.DateTimeFormat('en-US',{timeZone:tz,timeZoneName:'longOffset'}).formatToParts(new Date(utcGuess));let z=offsetParts.find(x=>x.type==='timeZoneName')?.value||'GMT';let m=z.match(/GMT([+-])(\d{2}):?(\d{2})/);let off=m?(m[1]==='+'?1:-1)*(+m[2]*60+(+m[3])):0;return utcGuess-off*60000}
+const cards=document.getElementById('countries');
+regions.forEach(([name,tz],i)=>{let el=document.createElement('article');el.className='country';el.innerHTML=`<strong>${name}</strong><div class="time" id="r${i}">--:--:--:--</div><small>${tz.replaceAll('_',' ')}</small>`;cards.appendChild(el)});
+function tick(){let now=Date.now(),end=new Date(targetDate+'Z').getTime();let diff=Math.max(0,end-now);let parts=fmt(diff).split(':');['days','hours','minutes','seconds'].forEach((id,i)=>document.getElementById(id).textContent=parts[i]);regions.forEach(([n,tz],i)=>document.getElementById('r'+i).textContent=fmt(Math.max(0,localMidnight(tz)-now)));}
 tick();setInterval(tick,1000);
+const audio=document.getElementById('music'),btn=document.getElementById('musicBtn'),vol=document.getElementById('volume');audio.volume=+vol.value;vol.addEventListener('input',()=>audio.volume=+vol.value);
+btn.addEventListener('click',async()=>{if(audio.paused){try{await audio.play();btn.textContent='Ⅱ Pause music'}catch(e){btn.textContent='Tap to retry music'}}else{audio.pause();btn.textContent='▶ Play ambient music'}});
 </script></body></html>
