@@ -6,7 +6,7 @@ const RELEASE_SCHEDULE = [
     flag: '🇳🇿',
     timeZone: 'Pacific/Auckland',
     launchISO: '2026-11-19T00:00:00+13:00',
-    mapCoords: { x: 922, y: 416 }
+    mapCoords: { x: 915, y: 410 }
   },
   {
     id: 'au',
@@ -15,7 +15,7 @@ const RELEASE_SCHEDULE = [
     flag: '🇦🇺',
     timeZone: 'Australia/Sydney',
     launchISO: '2026-11-19T00:00:00+11:00',
-    mapCoords: { x: 855, y: 368 }
+    mapCoords: { x: 845, y: 362 }
   },
   {
     id: 'jp',
@@ -24,16 +24,16 @@ const RELEASE_SCHEDULE = [
     flag: '🇯🇵',
     timeZone: 'Asia/Tokyo',
     launchISO: '2026-11-19T00:00:00+09:00',
-    mapCoords: { x: 852, y: 162 }
+    mapCoords: { x: 845, y: 158 }
   },
   {
     id: 'sg',
     regionName: 'Southeast Asia & China (Est.)',
-    countryName: 'SINGAPORE / HK',
-    flag: '🇸🇬',
-    timeZone: 'Asia/Singapore',
+    countryName: 'CHINA - PHILIPPINES',
+    flag: '🇨🇳',
+    timeZone: 'Asia/Shanghai',
     launchISO: '2026-11-19T00:00:00+08:00',
-    mapCoords: { x: 765, y: 272 }
+    mapCoords: { x: 755, y: 268 }
   },
   {
     id: 'in',
@@ -42,7 +42,7 @@ const RELEASE_SCHEDULE = [
     flag: '🇮🇳',
     timeZone: 'Asia/Kolkata',
     launchISO: '2026-11-19T00:00:00+05:30',
-    mapCoords: { x: 695, y: 222 }
+    mapCoords: { x: 688, y: 218 }
   },
   {
     id: 'pk',
@@ -51,61 +51,61 @@ const RELEASE_SCHEDULE = [
     flag: '🇵🇰',
     timeZone: 'Asia/Karachi',
     launchISO: '2026-11-19T00:00:00+05:00',
-    mapCoords: { x: 665, y: 196 }
+    mapCoords: { x: 658, y: 192 }
   },
   {
     id: 'ae',
     regionName: 'UAE & Gulf Region (Est.)',
-    countryName: 'UNITED ARAB EMIRATES',
+    countryName: 'UAE - OMAN',
     flag: '🇦🇪',
     timeZone: 'Asia/Dubai',
     launchISO: '2026-11-19T00:00:00+04:00',
-    mapCoords: { x: 618, y: 214 }
+    mapCoords: { x: 612, y: 210 }
   },
   {
     id: 'eu',
     regionName: 'Central Europe Wave (Est.)',
-    countryName: 'GERMANY / FRANCE',
-    flag: '🇪🇺',
+    countryName: 'GERMANY - FRANCE',
+    flag: '🇩🇪',
     timeZone: 'Europe/Berlin',
     launchISO: '2026-11-19T00:00:00+01:00',
-    mapCoords: { x: 505, y: 126 }
+    mapCoords: { x: 502, y: 122 }
   },
   {
     id: 'uk',
     regionName: 'United Kingdom & Ireland (Est.)',
-    countryName: 'UNITED KINGDOM',
+    countryName: 'UK - PORTUGAL',
     flag: '🇬🇧',
     timeZone: 'Europe/London',
     launchISO: '2026-11-19T00:00:00+00:00',
-    mapCoords: { x: 465, y: 118 }
+    mapCoords: { x: 462, y: 115 }
   },
   {
     id: 'br',
     regionName: 'Brazil & South America (Est.)',
-    countryName: 'BRAZIL',
+    countryName: 'BRAZIL - ARGENTINA',
     flag: '🇧🇷',
     timeZone: 'America/Sao_Paulo',
     launchISO: '2026-11-19T00:00:00-03:00',
-    mapCoords: { x: 302, y: 348 }
+    mapCoords: { x: 298, y: 344 }
   },
   {
     id: 'us-east',
     regionName: 'Leonida / Vice City & US East (Est.)',
-    countryName: 'USA — EAST COAST',
+    countryName: 'NEW YORK - TORONTO',
     flag: '🇺🇸',
     timeZone: 'America/New_York',
     launchISO: '2026-11-19T00:00:00-05:00',
-    mapCoords: { x: 242, y: 185 }
+    mapCoords: { x: 238, y: 182 }
   },
   {
     id: 'us-west',
     regionName: 'US West Coast & Pacific (Est.)',
-    countryName: 'USA — WEST COAST',
+    countryName: 'CALIFORNIA - VANCOUVER',
     flag: '🇺🇸',
     timeZone: 'America/Los_Angeles',
     launchISO: '2026-11-19T00:00:00-08:00',
-    mapCoords: { x: 145, y: 162 }
+    mapCoords: { x: 142, y: 158 }
   }
 ];
 
@@ -135,12 +135,10 @@ const dom = {
   regionLocalClock: document.getElementById('regionLocalClock'),
   regionTargetLocal: document.getElementById('regionTargetLocal'),
   launchedCountStat: document.getElementById('launchedCountStat'),
-  mapMarkersLayer: document.getElementById('mapMarkersLayer'),
-  sequenceTrack: document.getElementById('sequenceTrack'),
-  sequenceActiveLine: document.getElementById('sequenceActiveLine'),
-  calloutFlag: document.getElementById('calloutFlag'),
-  calloutName: document.getElementById('calloutName'),
-  calloutMiniTimer: document.getElementById('calloutMiniTimer'),
+  isoMarkersLayer: document.getElementById('isoMarkersLayer'),
+  isoSequenceTrack: document.getElementById('isoSequenceTrack'),
+  isoSequenceActiveLine: document.getElementById('isoSequenceActiveLine'),
+  isoHudCardsLayer: document.getElementById('isoHudCardsLayer'),
   rolloutStrip: document.getElementById('rolloutStrip'),
   celebrationOverlay: document.getElementById('celebrationOverlay'),
   celebFlag: document.getElementById('celebFlag'),
@@ -152,17 +150,20 @@ const dom = {
   audioLabel: document.getElementById('audioLabel'),
   volumeSlider: document.getElementById('volumeSlider'),
   simulateLaunchBtn: document.getElementById('simulateLaunchBtn'),
-  fullscreenBtn: document.getElementById('fullscreenBtn')
+  fullscreenBtn: document.getElementById('fullscreenBtn'),
+  bgAudioElement: document.getElementById('bgAudioElement'),
+  celebrationSfx: document.getElementById('celebrationSfx')
 };
 
-class LeonidaAudioEngine {
+class HybridAudioEngine {
   constructor() {
+    this.useMp3 = true;
     this.ctx = null;
     this.masterGain = null;
     this.isPlaying = false;
     this.stepTimer = null;
     this.stepIndex = 0;
-    this.volume = 0.45;
+    this.volume = 0.5;
     this.restorePreference();
   }
 
@@ -172,6 +173,8 @@ class LeonidaAudioEngine {
       if (savedVol !== null) {
         this.volume = parseFloat(savedVol);
         dom.volumeSlider.value = this.volume;
+        if (dom.bgAudioElement) dom.bgAudioElement.volume = this.volume;
+        if (dom.celebrationSfx) dom.celebrationSfx.volume = this.volume;
       }
     } catch (_) {}
   }
@@ -182,7 +185,63 @@ class LeonidaAudioEngine {
     } catch (_) {}
   }
 
-  initContext() {
+  setVolume(val) {
+    this.volume = Math.max(0, Math.min(1, val));
+    if (dom.bgAudioElement) dom.bgAudioElement.volume = this.volume;
+    if (dom.celebrationSfx) dom.celebrationSfx.volume = this.volume;
+    if (this.masterGain && this.ctx) {
+      this.masterGain.gain.setTargetAtTime(this.volume, this.ctx.currentTime, 0.04);
+    }
+    this.savePreference();
+  }
+
+  toggle() {
+    if (this.isPlaying) {
+      this.stop();
+    } else {
+      this.start();
+    }
+    return this.isPlaying;
+  }
+
+  start() {
+    this.isPlaying = true;
+    if (dom.bgAudioElement) {
+      dom.bgAudioElement.volume = this.volume;
+      dom.bgAudioElement.play().then(() => {
+        // MP3 playback successful
+        this.useMp3 = true;
+      }).catch(() => {
+        // Fallback to Web Audio API synth if MP3 file (assets/launch-synth.mp3) is not found
+        this.useMp3 = false;
+        this.startSynth();
+      });
+    } else {
+      this.startSynth();
+    }
+  }
+
+  stop() {
+    this.isPlaying = false;
+    if (dom.bgAudioElement) {
+      dom.bgAudioElement.pause();
+    }
+    this.stopSynth();
+  }
+
+  playTaddaaa() {
+    if (dom.celebrationSfx && dom.celebrationSfx.src) {
+      dom.celebrationSfx.currentTime = 0;
+      dom.celebrationSfx.volume = this.volume;
+      dom.celebrationSfx.play().catch(() => {
+        this.playSynthTaddaaa();
+      });
+    } else {
+      this.playSynthTaddaaa();
+    }
+  }
+
+  initSynthContext() {
     if (!this.ctx) {
       const AudioCtx = window.AudioContext || window.webkitAudioContext;
       this.ctx = new AudioCtx();
@@ -195,36 +254,10 @@ class LeonidaAudioEngine {
     }
   }
 
-  setVolume(val) {
-    this.volume = Math.max(0, Math.min(1, val));
-    if (this.masterGain && this.ctx) {
-      this.masterGain.gain.setTargetAtTime(this.volume, this.ctx.currentTime, 0.04);
-    }
-    this.savePreference();
-  }
-
-  toggle() {
-    if (this.isPlaying) {
-      this.stopMusic();
-    } else {
-      this.startMusic();
-    }
-    return this.isPlaying;
-  }
-
-  startMusic() {
-    this.initContext();
-    if (this.isPlaying) return;
-    this.isPlaying = true;
+  startSynth() {
+    this.initSynthContext();
     this.stepIndex = 0;
-
-    const bassProgression = [
-      110.0, 110.0, 110.0, 110.0,
-      87.31, 87.31, 87.31, 87.31,
-      65.41, 65.41, 65.41, 65.41,
-      98.00, 98.00, 98.00, 98.00
-    ];
-
+    const bassProgression = [110.0, 110.0, 110.0, 110.0, 87.31, 87.31, 87.31, 87.31, 65.41, 65.41, 65.41, 65.41, 98.00, 98.00, 98.00, 98.00];
     const padChords = [
       [220.0, 261.63, 329.63, 493.88],
       [174.61, 220.0, 261.63, 329.63],
@@ -232,33 +265,33 @@ class LeonidaAudioEngine {
       [196.0, 246.94, 293.66, 392.0]
     ];
 
+    if (this.stepTimer) clearInterval(this.stepTimer);
     this.stepTimer = setInterval(() => {
-      if (!this.isPlaying || !this.ctx) return;
+      if (!this.isPlaying || this.useMp3 || !this.ctx) return;
       const now = this.ctx.currentTime;
       const barStep = this.stepIndex % 16;
       const chordIdx = Math.floor((this.stepIndex % 64) / 16);
 
       const bassFreq = bassProgression[chordIdx * 4 + (barStep % 4)];
-      this.triggerSynthNote(bassFreq, 'sawtooth', 0.14, 0.14, now, 340);
+      this.triggerSynthNote(bassFreq, 'sawtooth', 0.13, 0.14, now, 340);
 
       if (barStep === 0) {
         padChords[chordIdx].forEach((freq) => {
-          this.triggerSynthNote(freq, 'triangle', 0.045, 2.2, now, 950);
+          this.triggerSynthNote(freq, 'triangle', 0.04, 2.2, now, 950);
         });
       }
 
       if (barStep % 4 === 2) {
         const arpNotes = padChords[chordIdx];
         const note = arpNotes[(this.stepIndex / 2) % arpNotes.length] * 2;
-        this.triggerSynthNote(note, 'sine', 0.035, 0.35, now, 1600);
+        this.triggerSynthNote(note, 'sine', 0.03, 0.35, now, 1600);
       }
 
-      this.stepIndex++;
+      this.stepIndex = (this.stepIndex + 1) % 256;
     }, 145);
   }
 
-  stopMusic() {
-    this.isPlaying = false;
+  stopSynth() {
     if (this.stepTimer) {
       clearInterval(this.stepTimer);
       this.stepTimer = null;
@@ -267,43 +300,46 @@ class LeonidaAudioEngine {
 
   triggerSynthNote(freq, type, peakGain, duration, startTime, filterCutoff) {
     if (!this.ctx || !this.masterGain) return;
-    const osc = this.ctx.createOscillator();
-    const filter = this.ctx.createBiquadFilter();
-    const gain = this.ctx.createGain();
+    try {
+      const osc = this.ctx.createOscillator();
+      const filter = this.ctx.createBiquadFilter();
+      const gain = this.ctx.createGain();
 
-    osc.type = type;
-    osc.frequency.setValueAtTime(freq, startTime);
+      osc.type = type;
+      osc.frequency.setValueAtTime(freq, startTime);
 
-    filter.type = 'lowpass';
-    filter.frequency.setValueAtTime(filterCutoff, startTime);
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(filterCutoff, startTime);
 
-    gain.gain.setValueAtTime(0.0001, startTime);
-    gain.gain.exponentialRampToValueAtTime(peakGain, startTime + 0.03);
-    gain.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
+      gain.gain.setValueAtTime(0.0001, startTime);
+      gain.gain.exponentialRampToValueAtTime(peakGain, startTime + 0.03);
+      gain.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
 
-    osc.connect(filter);
-    filter.connect(gain);
-    gain.connect(this.masterGain);
+      osc.connect(filter);
+      filter.connect(gain);
+      gain.connect(this.masterGain);
 
-    osc.start(startTime);
-    osc.stop(startTime + duration + 0.05);
+      osc.start(startTime);
+      osc.stop(startTime + duration + 0.05);
+    } catch (_) {}
   }
 
-  playLaunchFanfare() {
+  playSynthTaddaaa() {
     try {
-      this.initContext();
+      this.initSynthContext();
       const now = this.ctx.currentTime;
-      const notes = [261.63, 329.63, 392.0, 493.88, 587.33, 783.99];
-      notes.forEach((freq, idx) => {
-        const t = now + idx * 0.09;
-        this.triggerSynthNote(freq, 'triangle', 0.16, 1.1, t, 2400);
-        this.triggerSynthNote(freq * 0.5, 'sine', 0.12, 1.3, t, 1200);
-      });
+      const chord1 = [261.63, 329.63, 392.0];
+      const chord2 = [349.23, 440.0, 523.25];
+      const chord3 = [392.0, 493.88, 587.33, 783.99];
+
+      chord1.forEach(f => this.triggerSynthNote(f, 'sawtooth', 0.12, 0.22, now, 1800));
+      chord2.forEach(f => this.triggerSynthNote(f, 'sawtooth', 0.12, 0.22, now + 0.2, 1800));
+      chord3.forEach(f => this.triggerSynthNote(f, 'triangle', 0.18, 1.2, now + 0.42, 2800));
     } catch (_) {}
   }
 }
 
-const audioEngine = new LeonidaAudioEngine();
+const audioEngine = new HybridAudioEngine();
 
 function isRegionLaunched(region, nowMs) {
   return region.simulatedLaunched || nowMs >= region.targetMs;
@@ -373,16 +409,18 @@ function buildRolloutStrip() {
   });
 }
 
-function renderWorldMap(nowMs, focusIndex) {
+function renderIsometricMap(nowMs, focusIndex) {
   const points = SCHEDULE.map((r) => `${r.mapCoords.x},${r.mapCoords.y}`);
-  dom.sequenceTrack.setAttribute('d', `M ${points.join(' L ')}`);
+  dom.isoSequenceTrack.setAttribute('d', `M ${points.join(' L ')}`);
 
   const activeSlice = SCHEDULE.slice(0, Math.max(1, focusIndex + 1)).map(
     (r) => `${r.mapCoords.x},${r.mapCoords.y}`
   );
-  dom.sequenceActiveLine.setAttribute('d', `M ${activeSlice.join(' L ')}`);
+  dom.isoSequenceActiveLine.setAttribute('d', `M ${activeSlice.join(' L ')}`);
 
-  dom.mapMarkersLayer.innerHTML = '';
+  dom.isoMarkersLayer.innerHTML = '';
+  dom.isoHudCardsLayer.innerHTML = '';
+
   SCHEDULE.forEach((region, idx) => {
     const launched = isRegionLaunched(region, nowMs);
     const isFocus = idx === focusIndex;
@@ -399,7 +437,7 @@ function renderWorldMap(nowMs, focusIndex) {
       const pulse = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
       pulse.setAttribute('cx', x);
       pulse.setAttribute('cy', y);
-      pulse.setAttribute('r', '10');
+      pulse.setAttribute('r', '12');
       pulse.setAttribute('class', 'marker-pulse-ring');
       g.appendChild(pulse);
     }
@@ -407,25 +445,50 @@ function renderWorldMap(nowMs, focusIndex) {
     const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
     dot.setAttribute('cx', x);
     dot.setAttribute('cy', y);
-    dot.setAttribute('r', isFocus ? '6.5' : launched ? '4.5' : '4');
+    dot.setAttribute('r', isFocus ? '7' : launched ? '5' : '4.5');
 
     if (isFocus) {
       dot.setAttribute('fill', '#ff9e3b');
       dot.setAttribute('stroke', '#ffffff');
-      dot.setAttribute('stroke-width', '2');
-      dot.setAttribute('filter', 'url(#neonGlow)');
+      dot.setAttribute('stroke-width', '2.2');
+      dot.setAttribute('filter', 'url(#isoNeonGlow)');
     } else if (launched) {
       dot.setAttribute('fill', '#10b981');
       dot.setAttribute('stroke', '#064e3b');
-      dot.setAttribute('stroke-width', '1.2');
+      dot.setAttribute('stroke-width', '1.5');
     } else {
       dot.setAttribute('fill', '#ff2e93');
       dot.setAttribute('stroke', '#1e1136');
-      dot.setAttribute('stroke-width', '1.2');
+      dot.setAttribute('stroke-width', '1.5');
     }
 
     g.appendChild(dot);
-    dom.mapMarkersLayer.appendChild(g);
+    dom.isoMarkersLayer.appendChild(g);
+
+    const card = document.createElement('div');
+    card.className = `map-region-card ${isFocus ? 'is-active' : ''} ${launched ? 'is-launched' : ''}`;
+    card.style.left = `${(x / 1000) * 100}%`;
+    card.style.top = `${(y / 520) * 100}%`;
+
+    const dMs = Math.max(0, region.targetMs - nowMs);
+    const hrs = Math.floor(dMs / (1000 * 60 * 60));
+    const mins = Math.floor((dMs / (1000 * 60)) % 60);
+    const secs = Math.floor((dMs / 1000) % 60);
+
+    card.innerHTML = `
+      <span class="hud-flag">${region.flag}</span>
+      <div class="hud-details">
+        <span class="hud-title">${region.countryName}</span>
+        <span class="hud-timer">${launched ? 'UNLOCKED' : `${hrs}h ${pad2(mins)}m ${pad2(secs)}s`}</span>
+      </div>
+    `;
+
+    card.addEventListener('click', () => {
+      inspectedIndex = inspectedIndex === idx ? null : idx;
+      updateDashboard();
+    });
+
+    dom.isoHudCardsLayer.appendChild(card);
   });
 }
 
@@ -442,7 +505,8 @@ function triggerCelebration(region, nextRegion) {
 
   dom.celebrationOverlay.classList.add('is-visible');
   dom.celebrationOverlay.setAttribute('aria-hidden', 'false');
-  audioEngine.playLaunchFanfare();
+  
+  audioEngine.playTaddaaa();
 
   clearTimeout(celebrationTimeout);
   celebrationTimeout = setTimeout(() => {
@@ -517,12 +581,6 @@ function updateDashboard() {
   dom.cdMinutes.textContent = pad2(minutes);
   dom.cdSeconds.textContent = pad2(seconds);
 
-  dom.calloutFlag.textContent = currentRegion.flag;
-  dom.calloutName.textContent = currentRegion.countryName;
-  dom.calloutMiniTimer.textContent = currentLaunched
-    ? 'LIVE NOW'
-    : `${pad2(days)}d ${pad2(hours)}h ${pad2(minutes)}m ${pad2(seconds)}s`;
-
   const chips = dom.rolloutStrip.querySelectorAll('.region-chip');
   chips.forEach((chip, idx) => {
     const reg = SCHEDULE[idx];
@@ -543,7 +601,7 @@ function updateDashboard() {
     }
   });
 
-  renderWorldMap(nowMs, displayIndex);
+  renderIsometricMap(nowMs, displayIndex);
 }
 
 dom.audioToggleBtn.addEventListener('click', () => {
@@ -551,7 +609,7 @@ dom.audioToggleBtn.addEventListener('click', () => {
   dom.audioToggleBtn.classList.toggle('is-playing', playing);
   dom.audioToggleBtn.setAttribute('aria-pressed', String(playing));
   dom.audioIcon.textContent = playing ? '❚❚' : '▶';
-  dom.audioLabel.textContent = playing ? 'PAUSE SYNTH' : 'LEONIDA SYNTH';
+  dom.audioLabel.textContent = playing ? 'PAUSE VICE CITY AUDIO' : 'VICE CITY AUDIO (MP3/SYNTH)';
 });
 
 dom.volumeSlider.addEventListener('input', (e) => {
